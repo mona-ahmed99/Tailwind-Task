@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 37 99 235;
+    --color-secondary: 100 116 139;
+    --color-danger: 220 38 38;
+    --color-surface: 255 255 255;
+    --color-muted: 100 116 139;
+    --color-border: 226 232 240;
+  }
+
+  .dark {
+    --color-primary: 96 165 250;
+    --color-secondary: 148 163 184;
+    --color-danger: 248 113 113;
+    --color-surface: 15 23 42;
+    --color-muted: 148 163 184;
+    --color-border: 51 65 85;
+  }
+
+  body {
+    @apply bg-surface text-slate-900 dark:text-slate-100;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary text-white hover:bg-primary/90 focus:ring-primary;
+  }
+
+  .btn-secondary {
+    @apply btn bg-secondary/10 text-secondary hover:bg-secondary/20 focus:ring-secondary dark:bg-secondary/20 dark:hover:bg-secondary/30;
+  }
+
+  .card {
+    @apply rounded-2xl border border-border bg-surface p-6 shadow-sm;
+  }
+
+  .input {
+    @apply w-full rounded-lg border border-border bg-surface px-3 py-2 text-sm text-slate-900 placeholder:text-foreground-muted focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 dark:text-slate-100;
+  }
+
+  .input-error {
+    @apply input border-danger focus:border-danger focus:ring-danger/20;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+
+  .badge-success {
+    @apply badge bg-primary/10 text-primary;
+  }
+
+  .badge-warning {
+    @apply badge bg-secondary/10 text-secondary;
+  }
+
+  .badge-danger {
+    @apply badge bg-danger/10 text-danger;
+  }
+}
+
+@layer utilities {
+  .center-flex {
+    @apply flex items-center justify-center;
+  }
+
+  .text-muted {
+    @apply text-foreground-muted;
+  }
+
+  .stack-sm {
+    @apply flex flex-col gap-2;
+  }
+}
